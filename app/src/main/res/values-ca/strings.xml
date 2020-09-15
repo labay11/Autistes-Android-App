@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Autistes</string>
+    <string name="hello">Hola</string>
+    <string name="goodbye">Adéu</string>
+    <string name="your_name">Com et dius?</string>
+    <string name="next">Següent</string>
+    <string name="alert_no_name">Escriu el teu nom tros d\'ase!</string>
+    <string name="about">Informació</string>
+</resources>

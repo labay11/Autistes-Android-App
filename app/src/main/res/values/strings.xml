@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Autistes</string>
+    <string name="hello">Hello</string>
+    <string name="goodbye">Good Bye</string>
+    <string name="your_name">What\'s your name?</string>
+    <string name="next">Next</string>
+    <string name="alert_no_name">Write your name first!</string>
+    <string name="about">About</string>
+</resources>
