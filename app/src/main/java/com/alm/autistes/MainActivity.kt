@@ -1,5 +1,7 @@
 package com.alm.autistes
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
@@ -13,17 +15,27 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var editTextName: EditText
     private lateinit var buttonNext: Button
+    private lateinit var preferences: SharedPreferences
+
+    private var name: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        preferences = getSharedPreferences(MainActivity::class.java.name, Context.MODE_PRIVATE)
+        name = preferences.getString("name", "") ?: ""
+
         editTextName = findViewById(R.id.edittext_name)
         buttonNext = findViewById(R.id.button_say_hello)
 
+        editTextName.setText(name)
+
         buttonNext.setOnClickListener {
             if (editTextName.text != null && editTextName.text.toString().isNotBlank()) {
-                val intent = SecondaryActivity.createIntent(this, editTextName.text.toString())
+                name = editTextName.text.toString()
+                preferences.edit().putString("name", name).apply()
+                val intent = SecondaryActivity.createIntent(this, name)
                 startActivity(intent)
             } else
                 Toast.makeText(this, R.string.alert_no_name, Toast.LENGTH_SHORT).show()
